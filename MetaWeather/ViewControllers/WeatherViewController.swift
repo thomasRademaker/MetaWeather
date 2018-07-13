@@ -166,8 +166,16 @@ extension WeatherViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
         getWeather(withKeyword: text)
-        // TODO: save all searches to Core Data
-        // TODO: resign first responder of searchBar
+        
+        let search = Search(context: managedContext)
+        search.keyword = text
+        search.timeStamp = NSDate()
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Save error: \(error), description: \(error.userInfo)")
+        }
     }
 }
 
