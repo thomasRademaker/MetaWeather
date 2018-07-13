@@ -58,12 +58,12 @@ enum MetaWeatherRouter: URLRequestConvertible {
          
          Content-Type: application/json. user JSONEncoding */
         
-        let parameters: [String: Any] = {
+        let parameters: [String: Any]? = {
             switch self {
             case .makeItRain(_ , let inches):
                 return ["inches": inches]
             default:
-                return [:]
+                return nil
             }
         }()
         
@@ -72,6 +72,8 @@ enum MetaWeatherRouter: URLRequestConvertible {
         request.httpMethod = method.rawValue
         //request.setValue("value", forHTTPHeaderField: "HEADER") // Example of a header
         request.timeoutInterval = TimeInterval(30 * 1000)
+        
+        
         
         return try JSONEncoding.default.encode(request, with: parameters)
     }
