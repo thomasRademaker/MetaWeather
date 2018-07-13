@@ -11,6 +11,10 @@
 		B884EE59ABE4074FED731F4F /* Pods_MetaWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBA12A0848DA51F87246BFE /* Pods_MetaWeatherTests.framework */; };
 		E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */; };
 		E986DD2220F8F2DB00BB5082 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */; };
+		E986DD2520F8F45D00BB5082 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2420F8F45D00BB5082 /* CoreDataStack.swift */; };
+		E986DD2820F8F4A100BB5082 /* MetaWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2620F8F4A100BB5082 /* MetaWeather.xcdatamodeld */; };
+		E986DD2E20F8FCE600BB5082 /* Search+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2D20F8FCE600BB5082 /* Search+CoreDataClass.swift */; };
+		E986DD3220F8FD0F00BB5082 /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD3120F8FD0F00BB5082 /* Search+CoreDataProperties.swift */; };
 		E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD87820F81DEA005D9ECB /* AppDelegate.swift */; };
 		E9BDD87E20F81DEA005D9ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BDD87C20F81DEA005D9ECB /* Main.storyboard */; };
 		E9BDD88020F81DEC005D9ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BDD87F20F81DEC005D9ECB /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 		CB48F791B18B19FC7C3525F1 /* Pods-MetaWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		E986DD2420F8F45D00BB5082 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E986DD2720F8F4A100BB5082 /* MetaWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MetaWeather.xcdatamodel; sourceTree = "<group>"; };
+		E986DD2D20F8FCE600BB5082 /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Search+CoreDataClass.swift"; path = "../../../../../.Trash/Search+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E986DD3120F8FD0F00BB5082 /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E9BDD87520F81DEA005D9ECB /* MetaWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BDD87820F81DEA005D9ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9BDD87D20F81DEA005D9ECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +103,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E986DD2320F8F43C00BB5082 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E986DD2D20F8FCE600BB5082 /* Search+CoreDataClass.swift */,
+				E986DD3120F8FD0F00BB5082 /* Search+CoreDataProperties.swift */,
+				E986DD2420F8F45D00BB5082 /* CoreDataStack.swift */,
+				E986DD2620F8F4A100BB5082 /* MetaWeather.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		E9BDD86C20F81DEA005D9ECB = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +137,7 @@
 		E9BDD87720F81DEA005D9ECB /* MetaWeather */ = {
 			isa = PBXGroup;
 			children = (
+				E986DD2320F8F43C00BB5082 /* CoreData */,
 				E9BDD89B20F82102005D9ECB /* Networking */,
 				E9BDD89A20F820F7005D9ECB /* Models */,
 				E9BDD89920F820DF005D9ECB /* Views */,
@@ -359,6 +379,7 @@
 				E9BDD89E20F821D8005D9ECB /* WeatherViewController.swift in Sources */,
 				E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */,
 				E9BDD8B020F84BC8005D9ECB /* MainNavigationController.swift in Sources */,
+				E986DD2520F8F45D00BB5082 /* CoreDataStack.swift in Sources */,
 				E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */,
 				E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */,
 				E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */,
@@ -366,7 +387,10 @@
 				E9BDD8A020F821E8005D9ECB /* WeatherView.swift in Sources */,
 				E9BDD8A420F82209005D9ECB /* FiveDayViewController.swift in Sources */,
 				E9BDD8A820F82225005D9ECB /* FiveDayView.swift in Sources */,
+				E986DD2820F8F4A100BB5082 /* MetaWeather.xcdatamodeld in Sources */,
 				E986DD2220F8F2DB00BB5082 /* HistoryCell.swift in Sources */,
+				E986DD3220F8FD0F00BB5082 /* Search+CoreDataProperties.swift in Sources */,
+				E986DD2E20F8FCE600BB5082 /* Search+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,6 +659,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E986DD2620F8F4A100BB5082 /* MetaWeather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E986DD2720F8F4A100BB5082 /* MetaWeather.xcdatamodel */,
+			);
+			currentVersion = E986DD2720F8F4A100BB5082 /* MetaWeather.xcdatamodel */;
+			path = MetaWeather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E9BDD86D20F81DEA005D9ECB /* Project object */;
 }

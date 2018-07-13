@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class WeatherViewController: UIViewController {
 
     private lazy var weatherView = WeatherView(frame: view.frame)
+    var managedContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
