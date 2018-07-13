@@ -10,14 +10,14 @@ import Foundation
 
 struct Location: Codable {
     
-    //let distance: Int
-    let title: String
-    let locationType: String
-    let woeid: Int
-    let lattLong: String
+    let distance: Int?
+    let title: String?
+    let locationType: String?
+    let woeid: Int?
+    let lattLong: String?
     
     enum CodingKeys: String, CodingKey {
-        //case distance
+        case distance
         case title
         case locationType = "location_type"
         case woeid
