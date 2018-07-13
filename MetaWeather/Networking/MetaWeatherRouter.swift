@@ -19,34 +19,33 @@ enum MetaWeatherRouter: URLRequestConvertible {
     // makeItRain is not a real endpoint. it is here to demonstate other Router abilities that this API does not require
     case makeItRain(woeid: String, inches: String)
     
-    var method: HTTPMethod {
-        // switch statement is used because APIs can also include POST, PATCH, DELETE, etc..
-        // This API happens to only need GET
-        switch self {
-        case .locationSearchWithLongitudeAndLatitude, .locationSearchWithCityName, .getWeather, .weatherForDate:
-            return .get
-        // POST example
-        case .makeItRain:
-            return .post
-        }
-    }
-    
-    var path: String {
-        switch self {
-        case .locationSearchWithLongitudeAndLatitude(let lattitude, let longitude):
-            return "search/?lattlong=\(lattitude)\(longitude)"
-        case .locationSearchWithCityName(let cityName):
-            return "search/?query=\(cityName)"
-        case .getWeather(let woeid):
-            return "\(woeid)/"
-        case .weatherForDate(let woeid, let date):
-            return "\(woeid)/\(date)/"
-        case .makeItRain(let woeid, _):
-            return "\(woeid)/makeitrain/"
-        }
-    }
-    
     public func asURLRequest() throws -> URLRequest {
+        var method: HTTPMethod {
+            // switch statement is used because APIs can also include POST, PATCH, DELETE, etc..
+            // This API happens to only need GET
+            switch self {
+            case .locationSearchWithLongitudeAndLatitude, .locationSearchWithCityName, .getWeather, .weatherForDate:
+                return .get
+            // POST example
+            case .makeItRain:
+                return .post
+            }
+        }
+        
+        var path: String {
+            switch self {
+            case .locationSearchWithLongitudeAndLatitude(let lattitude, let longitude):
+                return "search/?lattlong=\(lattitude)\(longitude)"
+            case .locationSearchWithCityName(let cityName):
+                return "search/?query=\(cityName)"
+            case .getWeather(let woeid):
+                return "\(woeid)/"
+            case .weatherForDate(let woeid, let date):
+                return "\(woeid)/\(date)/"
+            case .makeItRain(let woeid, _):
+                return "\(woeid)/makeitrain/"
+            }
+        }
         /*let encoding: ParameterEncoding
          
          switch method {
@@ -74,7 +73,8 @@ enum MetaWeatherRouter: URLRequestConvertible {
         request.timeoutInterval = TimeInterval(30 * 1000)
         
         
-        
-        return try JSONEncoding.default.encode(request, with: parameters)
+        //return try URLEncoding.default.encode(request, with: parameters)
+        //return try JSONEncoding.default.encode(request)
+        return try URLEncoding.default.encode(request, with: parameters)
     }
 }
