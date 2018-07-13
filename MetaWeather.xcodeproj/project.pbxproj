@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		391A420CB33204E3FCA6CF75 /* Pods_MetaWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1CEC9DF3317D74B41B5B46 /* Pods_MetaWeather.framework */; };
 		B884EE59ABE4074FED731F4F /* Pods_MetaWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBA12A0848DA51F87246BFE /* Pods_MetaWeatherTests.framework */; };
+		E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */; };
+		E986DD2220F8F2DB00BB5082 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */; };
 		E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD87820F81DEA005D9ECB /* AppDelegate.swift */; };
 		E9BDD87E20F81DEA005D9ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BDD87C20F81DEA005D9ECB /* Main.storyboard */; };
 		E9BDD88020F81DEC005D9ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BDD87F20F81DEC005D9ECB /* Assets.xcassets */; };
@@ -16,9 +18,7 @@
 		E9BDD88E20F81DEC005D9ECB /* MetaWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD88D20F81DEC005D9ECB /* MetaWeatherTests.swift */; };
 		E9BDD89E20F821D8005D9ECB /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD89D20F821D8005D9ECB /* WeatherViewController.swift */; };
 		E9BDD8A020F821E8005D9ECB /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD89F20F821E8005D9ECB /* WeatherView.swift */; };
-		E9BDD8A220F821FA005D9ECB /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A120F821FA005D9ECB /* HistoryViewController.swift */; };
 		E9BDD8A420F82209005D9ECB /* FiveDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A320F82209005D9ECB /* FiveDayViewController.swift */; };
-		E9BDD8A620F82219005D9ECB /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A520F82219005D9ECB /* HistoryView.swift */; };
 		E9BDD8A820F82225005D9ECB /* FiveDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A720F82225005D9ECB /* FiveDayView.swift */; };
 		E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */; };
 		E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AB20F83AAD005D9ECB /* Weather.swift */; };
@@ -42,6 +42,8 @@
 		A6AE7AA922F2CA416867E39E /* Pods-MetaWeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeatherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeatherTests/Pods-MetaWeatherTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF1CEC9DF3317D74B41B5B46 /* Pods_MetaWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB48F791B18B19FC7C3525F1 /* Pods-MetaWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		E9BDD87520F81DEA005D9ECB /* MetaWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BDD87820F81DEA005D9ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9BDD87D20F81DEA005D9ECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,9 +55,7 @@
 		E9BDD88F20F81DEC005D9ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9BDD89D20F821D8005D9ECB /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		E9BDD89F20F821E8005D9ECB /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
-		E9BDD8A120F821FA005D9ECB /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		E9BDD8A320F82209005D9ECB /* FiveDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayViewController.swift; sourceTree = "<group>"; };
-		E9BDD8A520F82219005D9ECB /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E9BDD8A720F82225005D9ECB /* FiveDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayView.swift; sourceTree = "<group>"; };
 		E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherRouter.swift; sourceTree = "<group>"; };
 		E9BDD8AB20F83AAD005D9ECB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -140,9 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				E9BDD89D20F821D8005D9ECB /* WeatherViewController.swift */,
-				E9BDD8A120F821FA005D9ECB /* HistoryViewController.swift */,
 				E9BDD8A320F82209005D9ECB /* FiveDayViewController.swift */,
 				E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */,
+				E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -151,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				E9BDD89F20F821E8005D9ECB /* WeatherView.swift */,
-				E9BDD8A520F82219005D9ECB /* HistoryView.swift */,
 				E9BDD8A720F82225005D9ECB /* FiveDayView.swift */,
+				E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,17 +356,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BDD8A620F82219005D9ECB /* HistoryView.swift in Sources */,
 				E9BDD89E20F821D8005D9ECB /* WeatherViewController.swift in Sources */,
 				E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */,
 				E9BDD8B020F84BC8005D9ECB /* MainNavigationController.swift in Sources */,
 				E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */,
+				E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */,
 				E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */,
 				E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */,
-				E9BDD8A220F821FA005D9ECB /* HistoryViewController.swift in Sources */,
 				E9BDD8A020F821E8005D9ECB /* WeatherView.swift in Sources */,
 				E9BDD8A420F82209005D9ECB /* FiveDayViewController.swift in Sources */,
 				E9BDD8A820F82225005D9ECB /* FiveDayView.swift in Sources */,
+				E986DD2220F8F2DB00BB5082 /* HistoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
