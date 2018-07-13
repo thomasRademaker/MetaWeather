@@ -10,12 +10,13 @@ import Foundation
 
 struct Weather: Codable {
     
+    // These shouldn't all be optionals. More time with the API would help determine which are required
     let id: Int?
     let weatherStateName: String?
     let weatherStateAbbr: String?
     let windDirectionCompass: String?
     let created: String?
-    let applicableDate: String?
+    let applicableDate: String? // This should be a Date object
     let minTemp: Double?
     let maxTemp: Double?
     let theTemp: Double?
@@ -47,8 +48,10 @@ struct Weather: Codable {
 
 struct ConsolidatedWeather: Codable {
     let weathers: [Weather]
+    let title: String?
     
     enum CodingKeys: String, CodingKey {
         case weathers = "consolidated_weather"
+        case title
     }
 }

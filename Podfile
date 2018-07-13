@@ -6,6 +6,7 @@ target 'MetaWeather' do
 
   # Pods for MetaWeather
   pod 'Alamofire', '~> 4.7'
+  pod 'Kingfisher', '~> 4.0'
 
   target 'MetaWeatherTests' do
     inherit! :search_paths
