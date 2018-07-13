@@ -21,6 +21,8 @@
 		E9BDD8A620F82219005D9ECB /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A520F82219005D9ECB /* HistoryView.swift */; };
 		E9BDD8A820F82225005D9ECB /* FiveDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A720F82225005D9ECB /* FiveDayView.swift */; };
 		E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */; };
+		E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AB20F83AAD005D9ECB /* Weather.swift */; };
+		E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AD20F83ABC005D9ECB /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E9BDD8A520F82219005D9ECB /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E9BDD8A720F82225005D9ECB /* FiveDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayView.swift; sourceTree = "<group>"; };
 		E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherRouter.swift; sourceTree = "<group>"; };
+		E9BDD8AB20F83AAD005D9ECB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		E9BDD8AD20F83ABC005D9ECB /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		FCF4C4330D409DE778C14AD8 /* Pods-MetaWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +157,8 @@
 		E9BDD89A20F820F7005D9ECB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9BDD8AB20F83AAD005D9ECB /* Weather.swift */,
+				E9BDD8AD20F83ABC005D9ECB /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,8 +355,10 @@
 			files = (
 				E9BDD8A620F82219005D9ECB /* HistoryView.swift in Sources */,
 				E9BDD89E20F821D8005D9ECB /* WeatherViewController.swift in Sources */,
+				E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */,
 				E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */,
 				E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */,
+				E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */,
 				E9BDD8A220F821FA005D9ECB /* HistoryViewController.swift in Sources */,
 				E9BDD8A020F821E8005D9ECB /* WeatherView.swift in Sources */,
 				E9BDD8A420F82209005D9ECB /* FiveDayViewController.swift in Sources */,
