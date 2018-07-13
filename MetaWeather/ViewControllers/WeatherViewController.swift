@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 import Alamofire
+import Kingfisher
 
 class WeatherViewController: UIViewController {
 
@@ -39,6 +40,7 @@ class WeatherViewController: UIViewController {
         let searchController = UISearchController(searchResultsController: nil) // Search Controller
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
         
         guard let historyImage = UIImage(named: "history") else { fatalError("history image not available")}
         guard let fiveDayImage = UIImage(named: "fiveDay") else { fatalError("fiveDay image not available")}
@@ -92,49 +94,48 @@ class WeatherViewController: UIViewController {
         weatherView.highTemp.text = "\(weather.maxTemp ?? 00)"
         weatherView.lowTemp.text = "\(weather.minTemp ?? 00)"
         
-        // TODO image
+        let imageURL: URL = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(weather.weatherStateAbbr!).png")!
+        weatherView.conditionImage.kf.indicatorType = .activity
+        weatherView.conditionImage.kf.setImage(with: imageURL)
     }
     
     private func getWeather(forLocation location: Location) {
+        
         Alamofire.request(URL(string: "https://www.metaweather.com/api/location/\(location.woeid!)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .responseJSON { response in
-                //print(response)
-                //to get status code
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 200...299:
-                        print("example success")
-                        let weatherObject = try! JSONDecoder().decode(ConsolidatedWeather.self, from: response.data!)
-                        print("WeatherObject: \(weatherObject)")
+                
+                guard let status = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                
+                switch status {
+                case 200...299:
+                    if let weatherObject = try? JSONDecoder().decode(ConsolidatedWeather.self, from: data) {
                         self.updateView(forWeather: weatherObject)
-                    default:
-                        print("error with response status: \(status)")
                     }
+                default:
+                    print("error with response status: \(status)")
                 }
-                
-                
-                
         }
     }
     
     private func getWeather(withLattitude lattitude: String, longitude: String) {
         //let router = MetaWeatherRouter.locationSearchWithLongitudeAndLatitude(lattitude: lattitude, longitude: longitude)
-        let router = MetaWeatherRouter.locationSearchWithCityName(cityName: "london")
+        //let router = MetaWeatherRouter.locationSearchWithCityName(cityName: "london")
         //let router = MetaWeatherRouter.getWeather(woeid: "44418")
         
         Alamofire.request(URL(string: "https://www.metaweather.com/api/location/search/?lattlong=\(lattitude),\(longitude)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .responseJSON { response in
-                print(response)
-                //to get status code
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 200...299:
-                        print("example success")
-                        let locationObject = try! JSONDecoder().decode(Array<Location>.self, from: response.data!)
+                
+                guard let status = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                
+                switch status {
+                case 200...299:
+                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
                         self.getWeather(forLocation: locationObject[0])
-                    default:
-                        print("error with response status: \(status)")
                     }
+                default:
+                    print("error with response status: \(status)")
                 }
         }
     }
@@ -142,44 +143,38 @@ class WeatherViewController: UIViewController {
     private func getWeather(withKeyword keyword: String) {
         Alamofire.request(URL(string: "https://www.metaweather.com/api/location/search/?query=\(keyword)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .responseJSON { response in
-                print(response)
-                //to get status code
-                if let status = response.response?.statusCode {
-                    switch(status){
-                    case 200...299:
-                        print("example success")
-                        //let locationObjectTwo = try? JSONDecoder().decode(Array<Location>.self, from: response.data!)
-                        //print("locationObjectTwo: \(String(describing: locationObjectTwo))")
-                        let locationObject = try! JSONDecoder().decode(Array<Location>.self, from: response.data!)
+                
+                guard let status = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                
+                switch status {
+                case 200...299:
+                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
                         self.getWeather(forLocation: locationObject[0])
-                    default:
-                        print("error with response status: \(status)")
                     }
+                default:
+                    print("error with response status: \(status)")
                 }
-                //to get JSON return value
-                if let result = response.result.value {
-                    /*let JSON = result as! NSDictionary
-                     print(JSON)*/
-                    
-                }
-                
-                
-                
         }
     }
 }
 
+// MARK: UISearchControllerDelegate
+extension WeatherViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        getWeather(withKeyword: text)
+    }
+}
+
+// MARK: CLLocationManagerDelegate
 extension WeatherViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        //guard currentLocation == nil else { return }
         guard !locationOnce else { return }
         guard let currentLocation = locations.last else { return }
         
         locationOnce = true
-        
-        print("Current location: \(currentLocation)")
         let latitude = "\(currentLocation.coordinate.latitude)"
         let longitude = "\(currentLocation.coordinate.longitude)"
         getWeather(withLattitude: latitude, longitude: longitude)
