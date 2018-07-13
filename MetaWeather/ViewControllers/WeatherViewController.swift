@@ -66,11 +66,13 @@ class WeatherViewController: UIViewController {
     }
     
     @objc private func fiveDay() {
-        
+        let fiveDayViewController = FiveDayViewController()
+        navigationController?.pushViewController(fiveDayViewController, animated: true)
     }
     
     @objc private func history() {
-        
+        let historyViewController = HistoryTableViewController()
+        navigationController?.pushViewController(historyViewController, animated: true)
     }
     
     private func configureLocationManager() {
