@@ -152,7 +152,6 @@ class WeatherView: UIView {
     
     lazy var conditionImage: UIImageView = {
         let imageView = UIImageView()
-        //imageView.backgroundColor = .black
         return imageView
     }()
     

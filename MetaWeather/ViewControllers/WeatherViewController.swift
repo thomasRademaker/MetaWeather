@@ -23,7 +23,6 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         setupNavBar()
         configureLocationManager()
-        //getWeather(withKeyword: "london")
     }
     
     override func loadView() {
@@ -164,6 +163,8 @@ extension WeatherViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
         getWeather(withKeyword: text)
+        // TODO: save all searches to Core Data
+        // TODO: resign first responder of searchBar
     }
 }
 
