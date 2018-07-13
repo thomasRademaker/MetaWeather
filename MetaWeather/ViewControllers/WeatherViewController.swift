@@ -18,6 +18,7 @@ class WeatherViewController: UIViewController {
     var managedContext: NSManagedObjectContext!
     private let locationManager = CLLocationManager()
     private var locationOnce = false
+    private var consolidatedWeather: ConsolidatedWeather?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +53,9 @@ class WeatherViewController: UIViewController {
     }
     
     @objc private func fiveDay() {
-        let fiveDayViewController = FiveDayViewController()
-        navigationController?.pushViewController(fiveDayViewController, animated: true)
+        let fiveDayPageViewController = FiveDayPageViewController.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        fiveDayPageViewController.consolidatedWeather = consolidatedWeather
+        navigationController?.pushViewController(fiveDayPageViewController, animated: true)
     }
     
     @objc private func history() {
@@ -109,6 +111,7 @@ class WeatherViewController: UIViewController {
                 switch status {
                 case 200...299:
                     if let weatherObject = try? JSONDecoder().decode(ConsolidatedWeather.self, from: data) {
+                        self.consolidatedWeather = weatherObject
                         self.updateView(forWeather: weatherObject)
                     }
                 default:

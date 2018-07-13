@@ -10,26 +10,34 @@ import UIKit
 
 class FiveDayViewController: UIViewController {
 
+    private lazy var weatherView = WeatherView(frame: view.frame)
+    var weather: Weather?
+    var cityName: String?
+    var pageIndex: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        updateView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func loadView() {
+        super.loadView()
+        view = weatherView
     }
-    */
 
+    private func updateView() { // TODO: clean up optionals
+        
+        guard let weather = weather else { fatalError("weather is not being injected into FoveDayViewController") }
+        
+        weatherView.cityName.text = cityName ?? "N/A"
+        
+        weatherView.condition.text = weather.weatherStateName
+        weatherView.temp.text = weather.theTemp != nil ? "\(weather.theTemp!)" : "N/A"
+        weatherView.highTemp.text = "\(weather.maxTemp ?? 00)"
+        weatherView.lowTemp.text = "\(weather.minTemp ?? 00)"
+        
+        let imageURL: URL = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(weather.weatherStateAbbr!).png")!
+        weatherView.conditionImage.kf.indicatorType = .activity
+        weatherView.conditionImage.kf.setImage(with: imageURL)
+    }
 }
