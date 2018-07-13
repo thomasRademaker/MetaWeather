@@ -8,15 +8,18 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class WeatherViewController: UIViewController {
 
     private lazy var weatherView = WeatherView(frame: view.frame)
     var managedContext: NSManagedObjectContext!
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        configureLocationManager()
     }
     
     override func loadView() {
@@ -51,5 +54,37 @@ class WeatherViewController: UIViewController {
     @objc private func history() {
         
     }
+    
+    private func configureLocationManager() {
+        let status  = CLLocationManager.authorizationStatus()
+        
+        if status == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
+        if status == .denied || status == .restricted {
+            let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
+}
 
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation = locations.last!
+        print("Current location: \(currentLocation)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Error \(error)")
+    }
 }
