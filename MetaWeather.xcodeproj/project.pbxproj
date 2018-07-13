@@ -23,6 +23,7 @@
 		E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */; };
 		E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AB20F83AAD005D9ECB /* Weather.swift */; };
 		E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AD20F83ABC005D9ECB /* Location.swift */; };
+		E9BDD8B020F84BC8005D9ECB /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherRouter.swift; sourceTree = "<group>"; };
 		E9BDD8AB20F83AAD005D9ECB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E9BDD8AD20F83ABC005D9ECB /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		FCF4C4330D409DE778C14AD8 /* Pods-MetaWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 				E9BDD89D20F821D8005D9ECB /* WeatherViewController.swift */,
 				E9BDD8A120F821FA005D9ECB /* HistoryViewController.swift */,
 				E9BDD8A320F82209005D9ECB /* FiveDayViewController.swift */,
+				E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				E9BDD8A620F82219005D9ECB /* HistoryView.swift in Sources */,
 				E9BDD89E20F821D8005D9ECB /* WeatherViewController.swift in Sources */,
 				E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */,
+				E9BDD8B020F84BC8005D9ECB /* MainNavigationController.swift in Sources */,
 				E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */,
 				E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */,
 				E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */,
