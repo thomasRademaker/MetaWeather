@@ -20,7 +20,7 @@ class WeatherView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .red
+        backgroundColor = .white
         addSubview(cityName)
         addSubview(tempLabel)
         addSubview(temp)
@@ -50,6 +50,7 @@ class WeatherView: UIView {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
+        activityIndicator.color = .rademakerGreen()
         return activityIndicator
     }()
     
@@ -63,7 +64,7 @@ class WeatherView: UIView {
         let label = UILabel()
         label.text = "Montclair, NJ"
         label.font = .systemFont(ofSize: 30, weight: .bold)
-        label.textColor = .white
+        label.textColor = .rademakerGreen()
         return label
     }()
     
@@ -78,7 +79,7 @@ class WeatherView: UIView {
         let label = UILabel()
         label.text = labelText
         label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .white
+        label.textColor = .rademakerGreen()
         return label
     }
     
@@ -86,7 +87,7 @@ class WeatherView: UIView {
         let label = UILabel()
         label.text = "75"
         label.font = .systemFont(ofSize: 20)
-        label.textColor = .white
+        label.textColor = .rademakerGreen()
         return label
     }
     
@@ -154,7 +155,7 @@ class WeatherView: UIView {
         let label = UILabel()
         label.text = "Sunny"
         label.font = .systemFont(ofSize: 18, weight: .bold)
-        label.textColor = .white
+        label.textColor = .rademakerGreen()
         return label
     }()
     

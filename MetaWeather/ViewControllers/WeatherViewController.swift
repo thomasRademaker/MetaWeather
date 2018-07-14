@@ -35,7 +35,7 @@ class WeatherViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true // Navigation bar large titles
         navigationItem.title = "Meta Weather"
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 0/255, green: 150/255, blue: 136/255, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = .rademakerGreen()
         
         let searchController = UISearchController(searchResultsController: nil) // Search Controller
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -150,7 +150,7 @@ extension WeatherViewController: UISearchBarDelegate {
         getWeather(router: MetaWeatherRouter.locationSearchWithCityName(cityName: text))
         
         let search = Search(context: managedContext)
-        search.keyword = text//.addingPercentEncoding(withAllowedCharacters: .whitespaces)!
+        search.keyword = text
         search.timeStamp = NSDate()
         
         do {

@@ -24,7 +24,7 @@ class HistoryTableViewController: UITableViewController {
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
-        activityIndicator.color = .red
+        activityIndicator.color = .rademakerGreen()
         return activityIndicator
     }()
     
