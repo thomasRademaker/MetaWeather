@@ -18,6 +18,7 @@ class WeatherViewController: UIViewController {
     var managedContext: NSManagedObjectContext!
     private let locationManager = CLLocationManager()
     private var locationOnce = false
+    let searchController = UISearchController(searchResultsController: nil)
     private var consolidatedWeather: ConsolidatedWeather?
     
     override func viewDidLoad() {
@@ -37,7 +38,6 @@ class WeatherViewController: UIViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = .rademakerGreen()
         
-        let searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
@@ -158,6 +158,8 @@ extension WeatherViewController: UISearchBarDelegate {
         } catch let error as NSError {
             print("Save error: \(error), description: \(error.userInfo)")
         }
+        
+        searchController.isActive = false
     }
 }
 
