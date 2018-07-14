@@ -60,6 +60,7 @@ class WeatherViewController: UIViewController {
     
     @objc private func history() {
         let historyViewController = HistoryTableViewController()
+        historyViewController.managedContext = managedContext
         navigationController?.pushViewController(historyViewController, animated: true)
     }
     
@@ -143,6 +144,7 @@ class WeatherViewController: UIViewController {
     }
     
     private func getWeather(withKeyword keyword: String) {
+        // FIXME: New York crashed app
         Alamofire.request(URL(string: "https://www.metaweather.com/api/location/search/?query=\(keyword)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .responseJSON { response in
                 
@@ -152,7 +154,7 @@ class WeatherViewController: UIViewController {
                 switch status {
                 case 200...299:
                     if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
-                        self.getWeather(forLocation: locationObject[0])
+                        self.getWeather(forLocation: locationObject[0]) // FIXME: Fatal error: Index out of range
                     }
                 default:
                     print("error with response status: \(status)")
