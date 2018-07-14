@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let weatherViewController = WeatherViewController()
         weatherViewController.managedContext = coreDataStack.managedContext
-        let navigationController = MainNavigationController(rootViewController: weatherViewController)
+        let navigationController = UINavigationController(rootViewController: weatherViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     

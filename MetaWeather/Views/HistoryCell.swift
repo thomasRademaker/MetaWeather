@@ -10,6 +10,9 @@ import UIKit
 
 class HistoryCell: UITableViewCell {
     
+    // This cell is so boring looking. If I had more time I would have created a prettier cell
+    // preferably with the help of a UI designer
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()

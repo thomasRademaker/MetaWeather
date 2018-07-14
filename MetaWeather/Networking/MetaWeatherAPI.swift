@@ -16,12 +16,13 @@ enum Result<Value> {
 
 enum MetaWeatherError: Error {
     case networkError
+    // If I had more time I would have created more specific MetaWeatherErrors
+    // and I would have had better error handling
 }
 
 struct MetaWeatherAPI {
     
     static func getWeather(router: MetaWeatherRouter, completion: @escaping (Result<Data>) -> Void) {
-        // FIXME: New York crashed app
         Alamofire.request(router)
             .responseJSON { response in
                 
@@ -39,6 +40,7 @@ struct MetaWeatherAPI {
                 case 200...299:
                     completion(Result.success(data))
                 default:
+                    // If I had more time I would have handled individual status codes differently
                     print("error with response status: \(status)")
                     completion(.failure(.networkError))
                 }

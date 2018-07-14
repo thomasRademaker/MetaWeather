@@ -32,12 +32,12 @@ class WeatherViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true // Navigation bar large titles
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Meta Weather"
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = .rademakerGreen()
         
-        let searchController = UISearchController(searchResultsController: nil) // Search Controller
+        let searchController = UISearchController(searchResultsController: nil)
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self

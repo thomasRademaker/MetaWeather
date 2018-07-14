@@ -29,7 +29,6 @@
 		E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */; };
 		E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AB20F83AAD005D9ECB /* Weather.swift */; };
 		E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AD20F83ABC005D9ECB /* Location.swift */; };
-		E9BDD8B020F84BC8005D9ECB /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +71,6 @@
 		E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherRouter.swift; sourceTree = "<group>"; };
 		E9BDD8AB20F83AAD005D9ECB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E9BDD8AD20F83ABC005D9ECB /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		FCF4C4330D409DE778C14AD8 /* Pods-MetaWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,7 +163,6 @@
 			children = (
 				E9BDD89D20F821D8005D9ECB /* WeatherViewController.swift */,
 				E9BDD8A320F82209005D9ECB /* FiveDayViewController.swift */,
-				E9BDD8AF20F84BC8005D9ECB /* MainNavigationController.swift */,
 				E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */,
 				E986DD3320F95CC200BB5082 /* FiveDayPageViewController.swift */,
 			);
@@ -389,7 +386,6 @@
 				E9BDD89E20F821D8005D9ECB /* WeatherViewController.swift in Sources */,
 				E986DD3C20F9A20200BB5082 /* UIColor+Rademaker.swift in Sources */,
 				E9BDD8AE20F83ABC005D9ECB /* Location.swift in Sources */,
-				E9BDD8B020F84BC8005D9ECB /* MainNavigationController.swift in Sources */,
 				E986DD2520F8F45D00BB5082 /* CoreDataStack.swift in Sources */,
 				E9BDD8AA20F822B4005D9ECB /* MetaWeatherRouter.swift in Sources */,
 				E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */,
