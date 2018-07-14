@@ -20,6 +20,12 @@ class HistoryCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        keywordText.text = ""
+        timeStampText.text = ""
+    }
+    
     private func setupView() {
         addSubview(keywordText)
         addSubview(timeStampText)
