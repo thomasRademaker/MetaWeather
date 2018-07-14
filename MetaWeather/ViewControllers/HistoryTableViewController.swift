@@ -38,6 +38,7 @@ class HistoryTableViewController: UITableViewController {
         fetchAndReload()
         
         tableView?.register(HistoryCell.self, forCellReuseIdentifier: searchCellIdentifier)
+        tableView?.rowHeight = 44
         
     }
     
