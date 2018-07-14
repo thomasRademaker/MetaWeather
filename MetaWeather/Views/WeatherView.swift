@@ -30,6 +30,7 @@ class WeatherView: UIView {
         addSubview(lowTemp)
         addSubview(condition)
         addSubview(conditionImage)
+        addSubview(activityIndicatior)
     }
     
     private func setupConstraints() {
@@ -42,6 +43,20 @@ class WeatherView: UIView {
         lowTempConstraints()
         conditionConstraints()
         conditionImageContraints()
+        activityIndicatorConstraints()
+    }
+    
+    lazy var activityIndicatior: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        return activityIndicator
+    }()
+    
+    private func activityIndicatorConstraints() {
+        activityIndicatior.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: activityIndicatior, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: activityIndicatior, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
     }
     
     lazy var cityName: UILabel = {

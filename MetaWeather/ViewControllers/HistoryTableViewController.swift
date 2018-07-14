@@ -20,20 +20,37 @@ class HistoryTableViewController: UITableViewController {
     
     private let searchCellIdentifier = "searchCellIdentifier"
     
+    lazy var activityIndicatior: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.stopAnimating()
+        activityIndicator.color = .red
+        return activityIndicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        setupActivityIndicator()
         
         let searchFetchRequest: NSFetchRequest<Search> = Search.fetchRequest()
         fetchRequest = searchFetchRequest
         fetchAndReload()
         
         tableView?.register(HistoryCell.self, forCellReuseIdentifier: searchCellIdentifier)
+        
     }
     
     private func setupNavBar() {
         navigationItem.title = "History"
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func setupActivityIndicator() {
+        view.addSubview(activityIndicatior)
+        activityIndicatior.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: activityIndicatior, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: activityIndicatior, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
     }
 
     private func fetchAndReload() {
@@ -69,7 +86,7 @@ class HistoryTableViewController: UITableViewController {
         cell.keywordText.text = search.keyword
         
         if let timeStamp = search.timeStamp {
-            cell.timeStampText.text = DateFormatter.localizedString(from: timeStamp as Date, dateStyle: .short, timeStyle: .short) //"\(timeStamp)"
+            cell.timeStampText.text = DateFormatter.localizedString(from: timeStamp as Date, dateStyle: .short, timeStyle: .short)
         }
 
         return cell
@@ -81,7 +98,10 @@ class HistoryTableViewController: UITableViewController {
         
         guard let keyword = searches[indexPath.row].keyword else { return }
         
+        activityIndicatior.startAnimating()
         MetaWeatherAPI.getWeatherFromKeyword(keyword: keyword, completion: { result in
+            self.activityIndicatior.stopAnimating()
+            
             switch result {
             case .success(let data):
                 if let weatherObject = try? JSONDecoder().decode(ConsolidatedWeather.self, from: data) {

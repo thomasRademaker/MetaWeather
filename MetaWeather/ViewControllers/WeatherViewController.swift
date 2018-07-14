@@ -102,7 +102,9 @@ class WeatherViewController: UIViewController {
     }
     
     private func getWeather(router: MetaWeatherRouter) {
+        weatherView.activityIndicatior.startAnimating()
         MetaWeatherAPI.getWeather(router: router, completion: { result in
+            self.weatherView.activityIndicatior.stopAnimating()
             
             switch result {
             case .success(let data):
