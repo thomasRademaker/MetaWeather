@@ -17,6 +17,7 @@
 		E986DD3220F8FD0F00BB5082 /* Search+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD3120F8FD0F00BB5082 /* Search+CoreDataProperties.swift */; };
 		E986DD3420F95CC200BB5082 /* FiveDayPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD3320F95CC200BB5082 /* FiveDayPageViewController.swift */; };
 		E986DD3820F97D2200BB5082 /* MetaWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD3720F97D2200BB5082 /* MetaWeatherAPI.swift */; };
+		E986DD3A20F9946600BB5082 /* Double+Rounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD3920F9946600BB5082 /* Double+Rounding.swift */; };
 		E9BDD87920F81DEA005D9ECB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BDD87820F81DEA005D9ECB /* AppDelegate.swift */; };
 		E9BDD87E20F81DEA005D9ECB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9BDD87C20F81DEA005D9ECB /* Main.storyboard */; };
 		E9BDD88020F81DEC005D9ECB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BDD87F20F81DEC005D9ECB /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		E986DD3120F8FD0F00BB5082 /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E986DD3320F95CC200BB5082 /* FiveDayPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayPageViewController.swift; sourceTree = "<group>"; };
 		E986DD3720F97D2200BB5082 /* MetaWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherAPI.swift; sourceTree = "<group>"; };
+		E986DD3920F9946600BB5082 /* Double+Rounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Rounding.swift"; sourceTree = "<group>"; };
 		E9BDD87520F81DEA005D9ECB /* MetaWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetaWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BDD87820F81DEA005D9ECB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9BDD87D20F81DEA005D9ECB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				E9BDD87F20F81DEC005D9ECB /* Assets.xcassets */,
 				E9BDD88120F81DEC005D9ECB /* LaunchScreen.storyboard */,
 				E9BDD88420F81DEC005D9ECB /* Info.plist */,
+				E986DD3920F9946600BB5082 /* Double+Rounding.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				E9BDD8AC20F83AAD005D9ECB /* Weather.swift in Sources */,
 				E9BDD8A020F821E8005D9ECB /* WeatherView.swift in Sources */,
 				E9BDD8A420F82209005D9ECB /* FiveDayViewController.swift in Sources */,
+				E986DD3A20F9946600BB5082 /* Double+Rounding.swift in Sources */,
 				E986DD2820F8F4A100BB5082 /* MetaWeather.xcdatamodeld in Sources */,
 				E986DD2220F8F2DB00BB5082 /* HistoryCell.swift in Sources */,
 				E986DD3220F8FD0F00BB5082 /* Search+CoreDataProperties.swift in Sources */,

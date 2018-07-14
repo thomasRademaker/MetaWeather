@@ -92,13 +92,14 @@ class WeatherViewController: UIViewController {
         let weather = weathers.weathers[0]
         
         weatherView.condition.text = weather.weatherStateName
-        weatherView.temp.text = weather.theTemp != nil ? "\(weather.theTemp!)" : "N/A"
-        weatherView.highTemp.text = "\(weather.maxTemp ?? 00)"
-        weatherView.lowTemp.text = "\(weather.minTemp ?? 00)"
+        weatherView.temp.text = weather.theTemp != nil ? "\(weather.theTemp!.rounded(toPlaces: 1))" : "N/A"
+        weatherView.highTemp.text = weather.maxTemp != nil ? "\(weather.maxTemp!.rounded(toPlaces: 1))" : "N/A"
+        weatherView.lowTemp.text = weather.minTemp != nil ? "\(weather.minTemp!.rounded(toPlaces: 1))" : "N/A"
         
-        let imageURL: URL = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(weather.weatherStateAbbr!).png")!
-        weatherView.conditionImage.kf.indicatorType = .activity
-        weatherView.conditionImage.kf.setImage(with: imageURL)
+        if let imageURL: URL = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(weather.weatherStateAbbr!).png") {
+            weatherView.conditionImage.kf.indicatorType = .activity
+            weatherView.conditionImage.kf.setImage(with: imageURL)
+        }
     }
     
     private func getWeather(router: MetaWeatherRouter) {
