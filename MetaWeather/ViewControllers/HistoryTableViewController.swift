@@ -17,7 +17,6 @@ class HistoryTableViewController: UITableViewController {
     var managedContext: NSManagedObjectContext!
     private var fetchRequest: NSFetchRequest<Search>?
     private var searches: [Search] = []
-    private var selectedSearch: Search?
     
     private let searchCellIdentifier = "searchCellIdentifier"
     
@@ -80,8 +79,19 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let selectedSearch = selectedSearch else { return }
+        guard let keyword = searches[indexPath.row].keyword else { return }
         
-        
+        MetaWeatherAPI.getWeatherFromKeyword(keyword: keyword, completion: { result in
+            switch result {
+            case .success(let data):
+                if let weatherObject = try? JSONDecoder().decode(ConsolidatedWeather.self, from: data) {
+                    let fiveDayPageViewController = FiveDayPageViewController.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+                    fiveDayPageViewController.consolidatedWeather = weatherObject
+                    self.navigationController?.pushViewController(fiveDayPageViewController, animated: true)
+                }
+            case .failure(let error):
+                print("getWeatherWithKeyword error: \(error)")
+            }
+        })
     }
 }
