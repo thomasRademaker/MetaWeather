@@ -31,10 +31,10 @@ class FiveDayPageViewController: UIPageViewController, UIPageViewControllerDataS
         view.addSubview(self.pageControl)
         
         self.pageControl.translatesAutoresizingMaskIntoConstraints = false
-        self.pageControl.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -5).isActive = true
-        self.pageControl.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -20).isActive = true
+        self.pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5).isActive = true
+        self.pageControl.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
         self.pageControl.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        self.pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func setupNavBar() {
