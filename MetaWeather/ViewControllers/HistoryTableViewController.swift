@@ -15,8 +15,9 @@ class HistoryTableViewController: UITableViewController {
     // and I would have used NSFetchedResultsController
     
     var managedContext: NSManagedObjectContext!
-    var fetchRequest: NSFetchRequest<Search>?
-    var searches: [Search] = []
+    private var fetchRequest: NSFetchRequest<Search>?
+    private var searches: [Search] = []
+    private var selectedSearch: Search?
     
     private let searchCellIdentifier = "searchCellIdentifier"
     
@@ -60,7 +61,6 @@ class HistoryTableViewController: UITableViewController {
         return searches.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: searchCellIdentifier, for: indexPath) as? HistoryCell else {
             fatalError("HistoryCell not dequed")
@@ -74,5 +74,14 @@ class HistoryTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    // MARK: Table View Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let selectedSearch = selectedSearch else { return }
+        
+        
     }
 }

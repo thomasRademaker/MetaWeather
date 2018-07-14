@@ -35,7 +35,7 @@ enum MetaWeatherRouter: URLRequestConvertible {
         var path: String {
             switch self {
             case .locationSearchWithLongitudeAndLatitude(let lattitude, let longitude):
-                return "search/?lattlong=\(lattitude)\(longitude)"
+                return "search/?lattlong=\(lattitude),\(longitude)"
             case .locationSearchWithCityName(let cityName):
                 return "search/?query=\(cityName)"
             case .getWeather(let woeid):
@@ -66,15 +66,14 @@ enum MetaWeatherRouter: URLRequestConvertible {
             }
         }()
         
-        let url = try MetaWeatherRouter.baseURLPath.asURL()
-        var request = URLRequest(url: url.appendingPathComponent(path))
+        let urlString = MetaWeatherRouter.baseURLPath + path
+        let url = try urlString.asURL()
+        guard let urlRemovingPercentEncoding = try url.absoluteString.removingPercentEncoding?.asURL() else { fatalError("String in Router must create a valid URL") }
+        var request = URLRequest(url: urlRemovingPercentEncoding)
         request.httpMethod = method.rawValue
         //request.setValue("value", forHTTPHeaderField: "HEADER") // Example of a header
         request.timeoutInterval = TimeInterval(30 * 1000)
         
-        
-        //return try URLEncoding.default.encode(request, with: parameters)
-        //return try JSONEncoding.default.encode(request)
-        return try URLEncoding.default.encode(request, with: parameters)
+        return try JSONEncoding.default.encode(request, with: parameters)
     }
 }

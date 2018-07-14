@@ -101,65 +101,29 @@ class WeatherViewController: UIViewController {
         weatherView.conditionImage.kf.setImage(with: imageURL)
     }
     
-    private func getWeather(forLocation location: Location) {
-        
-        Alamofire.request(URL(string: "https://www.metaweather.com/api/location/\(location.woeid!)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                
-                guard let status = response.response?.statusCode else { return }
-                guard let data = response.data else { return }
-                
-                switch status {
-                case 200...299:
+    private func getWeather(router: MetaWeatherRouter) {
+        MetaWeatherAPI.getWeather(router: router, completion: { result in
+            
+            switch result {
+            case .success(let data):
+                switch router {
+                case .getWeather:
                     if let weatherObject = try? JSONDecoder().decode(ConsolidatedWeather.self, from: data) {
                         self.consolidatedWeather = weatherObject
                         self.updateView(forWeather: weatherObject)
                     }
-                default:
-                    print("error with response status: \(status)")
-                }
-        }
-    }
-    
-    private func getWeather(withLattitude lattitude: String, longitude: String) {
-        //let router = MetaWeatherRouter.locationSearchWithLongitudeAndLatitude(lattitude: lattitude, longitude: longitude)
-        //let router = MetaWeatherRouter.locationSearchWithCityName(cityName: "london")
-        //let router = MetaWeatherRouter.getWeather(woeid: "44418")
-        
-        Alamofire.request(URL(string: "https://www.metaweather.com/api/location/search/?lattlong=\(lattitude),\(longitude)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                
-                guard let status = response.response?.statusCode else { return }
-                guard let data = response.data else { return }
-                
-                switch status {
-                case 200...299:
-                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
-                        self.getWeather(forLocation: locationObject[0])
+                case .locationSearchWithCityName, .locationSearchWithLongitudeAndLatitude:
+                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data),
+                        let woeid = locationObject[0].woeid {  // FIXME: Fatal error: Index out of range
+                        self.getWeather(router: MetaWeatherRouter.getWeather(woeid: "\(woeid)"))
                     }
                 default:
-                    print("error with response status: \(status)")
+                    print("Default")
                 }
-        }
-    }
-    
-    private func getWeather(withKeyword keyword: String) {
-        // FIXME: New York crashed app
-        Alamofire.request(URL(string: "https://www.metaweather.com/api/location/search/?query=\(keyword)")!, method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .responseJSON { response in
-                
-                guard let status = response.response?.statusCode else { return }
-                guard let data = response.data else { return }
-                
-                switch status {
-                case 200...299:
-                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
-                        self.getWeather(forLocation: locationObject[0]) // FIXME: Fatal error: Index out of range
-                    }
-                default:
-                    print("error with response status: \(status)")
-                }
-        }
+            case .failure(let error):
+                print("getWeatherWithKeyword error: \(error)")
+            }
+        })
     }
 }
 
@@ -167,7 +131,7 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
-        getWeather(withKeyword: text)
+        getWeather(router: MetaWeatherRouter.locationSearchWithCityName(cityName: text))
         
         let search = Search(context: managedContext)
         search.keyword = text
@@ -191,7 +155,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
         locationOnce = true
         let latitude = "\(currentLocation.coordinate.latitude)"
         let longitude = "\(currentLocation.coordinate.longitude)"
-        getWeather(withLattitude: latitude, longitude: longitude)
+        getWeather(router: MetaWeatherRouter.locationSearchWithLongitudeAndLatitude(lattitude: latitude, longitude: longitude))
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

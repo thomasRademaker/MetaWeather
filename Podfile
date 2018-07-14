@@ -6,6 +6,7 @@ target 'MetaWeather' do
 
   # Pods for MetaWeather
   pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
   pod 'Kingfisher', '~> 4.0'
 
   target 'MetaWeatherTests' do
