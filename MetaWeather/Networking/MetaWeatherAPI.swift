@@ -49,8 +49,15 @@ struct MetaWeatherAPI {
         MetaWeatherAPI.getWeather(router: MetaWeatherRouter.locationSearchWithCityName(cityName: keyword), completion: { result in
             switch result {
             case .success(let data):
-                if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data),
-                    let woeid = locationObject[0].woeid {  // FIXME: Fatal error: Index out of range
+                if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
+                    guard locationObject.count > 0 else {
+                        completion(.failure(.networkError))
+                        return
+                    }
+                    guard let woeid = locationObject[0].woeid else {
+                        completion(.failure(.networkError))
+                        return
+                    }
                     MetaWeatherAPI.getWeather(router: MetaWeatherRouter.getWeather(woeid: "\(woeid)"), completion: { result in
                         completion(result)
                     })

@@ -88,6 +88,9 @@ class WeatherViewController: UIViewController {
     
     private func updateView(forWeather weathers: ConsolidatedWeather) {
         weatherView.cityName.text = weathers.title
+        guard weathers.weathers.count > 0 else {
+            return
+        }
         
         let weather = weathers.weathers[0]
         
@@ -116,8 +119,12 @@ class WeatherViewController: UIViewController {
                         self.updateView(forWeather: weatherObject)
                     }
                 case .locationSearchWithCityName, .locationSearchWithLongitudeAndLatitude:
-                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data),
-                        let woeid = locationObject[0].woeid {  // FIXME: Fatal error: Index out of range
+                    if let locationObject = try? JSONDecoder().decode(Array<Location>.self, from: data) {
+                        guard locationObject.count > 0 else {
+                            self.locationReturnedNoResultsAlert()
+                            return
+                        }
+                        guard let woeid = locationObject[0].woeid else { return }
                         self.getWeather(router: MetaWeatherRouter.getWeather(woeid: "\(woeid)"))
                     }
                 default:
@@ -128,6 +135,12 @@ class WeatherViewController: UIViewController {
             }
         })
     }
+    
+    private func locationReturnedNoResultsAlert() {
+        let alert = UIAlertController(title: "No Results", message: "Your search returned no results. Please try again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: UISearchControllerDelegate
@@ -137,7 +150,7 @@ extension WeatherViewController: UISearchBarDelegate {
         getWeather(router: MetaWeatherRouter.locationSearchWithCityName(cityName: text))
         
         let search = Search(context: managedContext)
-        search.keyword = text
+        search.keyword = text//.addingPercentEncoding(withAllowedCharacters: .whitespaces)!
         search.timeStamp = NSDate()
         
         do {

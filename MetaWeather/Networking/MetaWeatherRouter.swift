@@ -34,10 +34,10 @@ enum MetaWeatherRouter: URLRequestConvertible {
         
         var path: String {
             switch self {
-            case .locationSearchWithLongitudeAndLatitude(let lattitude, let longitude):
-                return "search/?lattlong=\(lattitude),\(longitude)"
-            case .locationSearchWithCityName(let cityName):
-                return "search/?query=\(cityName)"
+            case .locationSearchWithLongitudeAndLatitude:
+                return "search/"
+            case .locationSearchWithCityName:
+                return "search/"
             case .getWeather(let woeid):
                 return "\(woeid)/"
             case .weatherForDate(let woeid, let date):
@@ -46,21 +46,25 @@ enum MetaWeatherRouter: URLRequestConvertible {
                 return "\(woeid)/makeitrain/"
             }
         }
-        /*let encoding: ParameterEncoding
+        
+        let encoding: ParameterEncoding
          
          switch method {
          case .get:
-         encoding = URLEncoding.default
+            encoding = URLEncoding.default
          default:
-         encoding = JSONEncoding.default
+            encoding = JSONEncoding.default
          }
-         
-         Content-Type: application/json. user JSONEncoding */
+        
         
         let parameters: [String: Any]? = {
             switch self {
             case .makeItRain(_ , let inches):
                 return ["inches": inches]
+            case .locationSearchWithLongitudeAndLatitude(let lattitude, let longitude):
+                return ["lattlong" : "\(lattitude),\(longitude)"]
+            case .locationSearchWithCityName(let cityName):
+                return ["query" : cityName]
             default:
                 return nil
             }
@@ -68,12 +72,11 @@ enum MetaWeatherRouter: URLRequestConvertible {
         
         let urlString = MetaWeatherRouter.baseURLPath + path
         let url = try urlString.asURL()
-        guard let urlRemovingPercentEncoding = try url.absoluteString.removingPercentEncoding?.asURL() else { fatalError("String in Router must create a valid URL") }
-        var request = URLRequest(url: urlRemovingPercentEncoding)
+        var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         //request.setValue("value", forHTTPHeaderField: "HEADER") // Example of a header
         request.timeoutInterval = TimeInterval(30 * 1000)
         
-        return try JSONEncoding.default.encode(request, with: parameters)
+        return try encoding.encode(request, with: parameters)
     }
 }

@@ -110,8 +110,15 @@ class HistoryTableViewController: UITableViewController {
                     self.navigationController?.pushViewController(fiveDayPageViewController, animated: true)
                 }
             case .failure(let error):
+                self.networkErrorAlert()
                 print("getWeatherWithKeyword error: \(error)")
             }
         })
+    }
+    
+    private func networkErrorAlert() {
+        let alert = UIAlertController(title: "Network error", message: "There was a network error. Please try again", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
