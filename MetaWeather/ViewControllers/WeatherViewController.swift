@@ -64,24 +64,7 @@ class WeatherViewController: UIViewController {
         navigationController?.pushViewController(historyViewController, animated: true)
     }
     
-    private func configureLocationManager() {
-        let status  = CLLocationManager.authorizationStatus()
-        
-        if status == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-            return
-        }
-        
-        if status == .denied || status == .restricted {
-            let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
-            return
-        }
-        
+    private func configureLocationManager() {        
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
     }
@@ -174,6 +157,24 @@ extension WeatherViewController: CLLocationManagerDelegate {
         let latitude = "\(currentLocation.coordinate.latitude)"
         let longitude = "\(currentLocation.coordinate.longitude)"
         getWeather(router: MetaWeatherRouter.locationSearchWithLongitudeAndLatitude(lattitude: latitude, longitude: longitude))
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            manager.requestWhenInUseAuthorization()
+        case .authorizedWhenInUse:
+            manager.startUpdatingLocation()
+        case .authorizedAlways:
+            manager.startUpdatingLocation()
+        case .restricted, .denied:
+            let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
