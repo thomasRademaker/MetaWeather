@@ -51,7 +51,7 @@
 		E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		E986DD2420F8F45D00BB5082 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E986DD2720F8F4A100BB5082 /* MetaWeather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MetaWeather.xcdatamodel; sourceTree = "<group>"; };
-		E986DD2D20F8FCE600BB5082 /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Search+CoreDataClass.swift"; path = "../../../../../.Trash/Search+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E986DD2D20F8FCE600BB5082 /* Search+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E986DD3120F8FD0F00BB5082 /* Search+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Search+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E986DD3320F95CC200BB5082 /* FiveDayPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayPageViewController.swift; sourceTree = "<group>"; };
 		E986DD3720F97D2200BB5082 /* MetaWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherAPI.swift; sourceTree = "<group>"; };
