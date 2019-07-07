@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SparrowTekBinding",
+        "repositoryURL": "git@github.com:SparrowTek/SparrowTekBinding.git",
+        "state": {
+          "branch": "master",
+          "revision": "860f143534c05716ffd5f383fbdaaff30c81d59f",
+          "version": null
+        }
+      },
+      {
+        "package": "SparrowTekCoordinators",
+        "repositoryURL": "git@github.com:SparrowTek/SparrowTekCoordinators.git",
+        "state": {
+          "branch": "master",
+          "revision": "2e132e597a7f1a38f6e810635d147597ccb4a4b3",
+          "version": null
+        }
+      },
+      {
+        "package": "SparrowTekNetworking",
+        "repositoryURL": "git@github.com:SparrowTek/SparrowTekNetworking.git",
+        "state": {
+          "branch": "master",
+          "revision": "12983e99063b9915dbf4141722e1cd1131d2e977",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

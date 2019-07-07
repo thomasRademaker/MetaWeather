@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EFFB6EF22D2A418001A9335 /* SparrowTekNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFFB6EE22D2A418001A9335 /* SparrowTekNetworking */; };
+		2EFFB6F222D2A442001A9335 /* SparrowTekCoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFFB6F122D2A442001A9335 /* SparrowTekCoordinators */; };
+		2EFFB6F522D2A464001A9335 /* SparrowTekBinding in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFFB6F422D2A464001A9335 /* SparrowTekBinding */; };
 		391A420CB33204E3FCA6CF75 /* Pods_MetaWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1CEC9DF3317D74B41B5B46 /* Pods_MetaWeather.framework */; };
 		B884EE59ABE4074FED731F4F /* Pods_MetaWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBA12A0848DA51F87246BFE /* Pods_MetaWeatherTests.framework */; };
 		E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */; };
@@ -79,6 +82,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EFFB6F222D2A442001A9335 /* SparrowTekCoordinators in Frameworks */,
+				2EFFB6EF22D2A418001A9335 /* SparrowTekNetworking in Frameworks */,
+				2EFFB6F522D2A464001A9335 /* SparrowTekBinding in Frameworks */,
 				391A420CB33204E3FCA6CF75 /* Pods_MetaWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +242,11 @@
 			dependencies = (
 			);
 			name = MetaWeather;
+			packageProductDependencies = (
+				2EFFB6EE22D2A418001A9335 /* SparrowTekNetworking */,
+				2EFFB6F122D2A442001A9335 /* SparrowTekCoordinators */,
+				2EFFB6F422D2A464001A9335 /* SparrowTekBinding */,
+			);
 			productName = MetaWeather;
 			productReference = E9BDD87520F81DEA005D9ECB /* MetaWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +298,11 @@
 				Base,
 			);
 			mainGroup = E9BDD86C20F81DEA005D9ECB;
+			packageReferences = (
+				2EFFB6ED22D2A418001A9335 /* XCRemoteSwiftPackageReference "SparrowTekNetworking" */,
+				2EFFB6F022D2A442001A9335 /* XCRemoteSwiftPackageReference "SparrowTekCoordinators" */,
+				2EFFB6F322D2A464001A9335 /* XCRemoteSwiftPackageReference "SparrowTekBinding" */,
+			);
 			productRefGroup = E9BDD87620F81DEA005D9ECB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -659,6 +675,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2EFFB6ED22D2A418001A9335 /* XCRemoteSwiftPackageReference "SparrowTekNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SparrowTek/SparrowTekNetworking.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		2EFFB6F022D2A442001A9335 /* XCRemoteSwiftPackageReference "SparrowTekCoordinators" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SparrowTek/SparrowTekCoordinators.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		2EFFB6F322D2A464001A9335 /* XCRemoteSwiftPackageReference "SparrowTekBinding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SparrowTek/SparrowTekBinding.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2EFFB6EE22D2A418001A9335 /* SparrowTekNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EFFB6ED22D2A418001A9335 /* XCRemoteSwiftPackageReference "SparrowTekNetworking" */;
+			productName = SparrowTekNetworking;
+		};
+		2EFFB6F122D2A442001A9335 /* SparrowTekCoordinators */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EFFB6F022D2A442001A9335 /* XCRemoteSwiftPackageReference "SparrowTekCoordinators" */;
+			productName = SparrowTekCoordinators;
+		};
+		2EFFB6F422D2A464001A9335 /* SparrowTekBinding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EFFB6F322D2A464001A9335 /* XCRemoteSwiftPackageReference "SparrowTekBinding" */;
+			productName = SparrowTekBinding;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E986DD2620F8F4A100BB5082 /* MetaWeather.xcdatamodeld */ = {
