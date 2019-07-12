@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2EFFB6EF22D2A418001A9335 /* SparrowTekNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFFB6EE22D2A418001A9335 /* SparrowTekNetworking */; };
-		2EFFB6F222D2A442001A9335 /* SparrowTekCoordinators in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFFB6F122D2A442001A9335 /* SparrowTekCoordinators */; };
-		2EFFB6F522D2A464001A9335 /* SparrowTekBinding in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFFB6F422D2A464001A9335 /* SparrowTekBinding */; };
-		391A420CB33204E3FCA6CF75 /* Pods_MetaWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1CEC9DF3317D74B41B5B46 /* Pods_MetaWeather.framework */; };
-		B884EE59ABE4074FED731F4F /* Pods_MetaWeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CBA12A0848DA51F87246BFE /* Pods_MetaWeatherTests.framework */; };
 		E986DD2020F8F2C400BB5082 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */; };
 		E986DD2220F8F2DB00BB5082 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */; };
 		E986DD2520F8F45D00BB5082 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986DD2420F8F45D00BB5082 /* CoreDataStack.swift */; };
@@ -45,11 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0CBA12A0848DA51F87246BFE /* Pods_MetaWeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CBB8062C03180A35E55653F /* Pods-MetaWeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeatherTests/Pods-MetaWeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A6AE7AA922F2CA416867E39E /* Pods-MetaWeatherTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeatherTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeatherTests/Pods-MetaWeatherTests.release.xcconfig"; sourceTree = "<group>"; };
-		BF1CEC9DF3317D74B41B5B46 /* Pods_MetaWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetaWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CB48F791B18B19FC7C3525F1 /* Pods-MetaWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		E986DD1F20F8F2C400BB5082 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		E986DD2120F8F2DB00BB5082 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		E986DD2420F8F45D00BB5082 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -74,7 +65,6 @@
 		E9BDD8A920F822B4005D9ECB /* MetaWeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaWeatherRouter.swift; sourceTree = "<group>"; };
 		E9BDD8AB20F83AAD005D9ECB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E9BDD8AD20F83ABC005D9ECB /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		FCF4C4330D409DE778C14AD8 /* Pods-MetaWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetaWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EFFB6F222D2A442001A9335 /* SparrowTekCoordinators in Frameworks */,
 				2EFFB6EF22D2A418001A9335 /* SparrowTekNetworking in Frameworks */,
-				2EFFB6F522D2A464001A9335 /* SparrowTekBinding in Frameworks */,
-				391A420CB33204E3FCA6CF75 /* Pods_MetaWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,24 +80,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B884EE59ABE4074FED731F4F /* Pods_MetaWeatherTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2CBCAE47FB3238CDBC455BBA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CB48F791B18B19FC7C3525F1 /* Pods-MetaWeather.debug.xcconfig */,
-				FCF4C4330D409DE778C14AD8 /* Pods-MetaWeather.release.xcconfig */,
-				1CBB8062C03180A35E55653F /* Pods-MetaWeatherTests.debug.xcconfig */,
-				A6AE7AA922F2CA416867E39E /* Pods-MetaWeatherTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E986DD2320F8F43C00BB5082 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +103,6 @@
 				E9BDD87720F81DEA005D9ECB /* MetaWeather */,
 				E9BDD88C20F81DEC005D9ECB /* MetaWeatherTests */,
 				E9BDD87620F81DEA005D9ECB /* Products */,
-				2CBCAE47FB3238CDBC455BBA /* Pods */,
-				FA80CEDC20DA571BD8A76890 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,15 +188,6 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
-		FA80CEDC20DA571BD8A76890 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BF1CEC9DF3317D74B41B5B46 /* Pods_MetaWeather.framework */,
-				0CBA12A0848DA51F87246BFE /* Pods_MetaWeatherTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -231,11 +195,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9BDD89220F81DEC005D9ECB /* Build configuration list for PBXNativeTarget "MetaWeather" */;
 			buildPhases = (
-				CC909018AC67C16E42F120C7 /* [CP] Check Pods Manifest.lock */,
 				E9BDD87120F81DEA005D9ECB /* Sources */,
 				E9BDD87220F81DEA005D9ECB /* Frameworks */,
 				E9BDD87320F81DEA005D9ECB /* Resources */,
-				ABF079B8F93C59ABFA42B094 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -244,8 +206,6 @@
 			name = MetaWeather;
 			packageProductDependencies = (
 				2EFFB6EE22D2A418001A9335 /* SparrowTekNetworking */,
-				2EFFB6F122D2A442001A9335 /* SparrowTekCoordinators */,
-				2EFFB6F422D2A464001A9335 /* SparrowTekBinding */,
 			);
 			productName = MetaWeather;
 			productReference = E9BDD87520F81DEA005D9ECB /* MetaWeather.app */;
@@ -255,7 +215,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9BDD89520F81DEC005D9ECB /* Build configuration list for PBXNativeTarget "MetaWeatherTests" */;
 			buildPhases = (
-				9469E49CF1341A1C1B25812C /* [CP] Check Pods Manifest.lock */,
 				E9BDD88520F81DEC005D9ECB /* Sources */,
 				E9BDD88620F81DEC005D9ECB /* Frameworks */,
 				E9BDD88720F81DEC005D9ECB /* Resources */,
@@ -300,8 +259,6 @@
 			mainGroup = E9BDD86C20F81DEA005D9ECB;
 			packageReferences = (
 				2EFFB6ED22D2A418001A9335 /* XCRemoteSwiftPackageReference "SparrowTekNetworking" */,
-				2EFFB6F022D2A442001A9335 /* XCRemoteSwiftPackageReference "SparrowTekCoordinators" */,
-				2EFFB6F322D2A464001A9335 /* XCRemoteSwiftPackageReference "SparrowTekBinding" */,
 			);
 			productRefGroup = E9BDD87620F81DEA005D9ECB /* Products */;
 			projectDirPath = "";
@@ -331,67 +288,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9469E49CF1341A1C1B25812C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWeatherTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ABF079B8F93C59ABFA42B094 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetaWeather/Pods-MetaWeather-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC909018AC67C16E42F120C7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MetaWeather-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9BDD87120F81DEA005D9ECB /* Sources */ = {
@@ -564,7 +460,6 @@
 		};
 		E9BDD89320F81DEC005D9ECB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB48F791B18B19FC7C3525F1 /* Pods-MetaWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -583,7 +478,6 @@
 		};
 		E9BDD89420F81DEC005D9ECB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCF4C4330D409DE778C14AD8 /* Pods-MetaWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -602,7 +496,6 @@
 		};
 		E9BDD89620F81DEC005D9ECB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CBB8062C03180A35E55653F /* Pods-MetaWeatherTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -624,7 +517,6 @@
 		};
 		E9BDD89720F81DEC005D9ECB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6AE7AA922F2CA416867E39E /* Pods-MetaWeatherTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -685,22 +577,6 @@
 				kind = branch;
 			};
 		};
-		2EFFB6F022D2A442001A9335 /* XCRemoteSwiftPackageReference "SparrowTekCoordinators" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SparrowTek/SparrowTekCoordinators.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		2EFFB6F322D2A464001A9335 /* XCRemoteSwiftPackageReference "SparrowTekBinding" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SparrowTek/SparrowTekBinding.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -708,16 +584,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2EFFB6ED22D2A418001A9335 /* XCRemoteSwiftPackageReference "SparrowTekNetworking" */;
 			productName = SparrowTekNetworking;
-		};
-		2EFFB6F122D2A442001A9335 /* SparrowTekCoordinators */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2EFFB6F022D2A442001A9335 /* XCRemoteSwiftPackageReference "SparrowTekCoordinators" */;
-			productName = SparrowTekCoordinators;
-		};
-		2EFFB6F422D2A464001A9335 /* SparrowTekBinding */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2EFFB6F322D2A464001A9335 /* XCRemoteSwiftPackageReference "SparrowTekBinding" */;
-			productName = SparrowTekBinding;
 		};
 /* End XCSwiftPackageProductDependency section */
 
